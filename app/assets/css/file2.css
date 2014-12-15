@@ -1,0 +1,19 @@
+body {
+  padding-top:    50px;
+  padding-bottom: 20px;
+}
+
+#footer {
+  display: inline-block;
+  width: 100%;
+}
+
+#github-block {
+  float: right;
+}
+
+#github-icon {
+  height: 25px;
+  margin: -5px 0 0 20px;
+  width: 25px;
+}

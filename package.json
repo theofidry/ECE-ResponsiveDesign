@@ -1,0 +1,33 @@
+{
+  "name": "responsive-ECEProject",
+  "version": "1.0.0",
+  "description": "responsive-ECEProject",
+  "main": "app",
+  "scripts": {
+    "test": "grunt check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theofidry/responsive-ECEProject.git"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-imagemin": "^0.9.2",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "imagemin-mozjpeg": "^4.0.0"
+  },
+  "author": "Théo FIDRY, Sacha MASSON, Martin LEGRIS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theofidry/responsive-ECEProject/issues"
+  },
+  "homepage": "https://github.com/theofidry/responsive-ECEProject"
+}
