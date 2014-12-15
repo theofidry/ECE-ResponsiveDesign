@@ -5,7 +5,7 @@ branches:
   only: master
 before_install: npm install -g grunt-cli
 script: grunt build
-after_success: ./deploy.sh
+after_deploy: ./deploy.sh
 deploy:
   provider: releases
   api-key:
