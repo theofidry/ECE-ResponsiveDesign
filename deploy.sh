@@ -6,7 +6,7 @@ if [ "$TRAVIS_REPO_SLUG" == ${REPO} ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] &
 
   echo -e "Publishing project to GitHub pages...\n"
 
-  cp -R build $HOME/public/
+  cp -R public $HOME/public/
 
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
