@@ -30,6 +30,38 @@ grunt build
 
 Now just serve the `public` folder as the web root.
 
+# Development
+
+## Layout
+
+```
+•
+└── app
+    ├── assets
+    |   ├── css   # CSS files
+    |   ├── img   # images
+    |   └── js    # JavaScript files
+    └── public    # view
+```
+
+All files are concatenated and minifyed to optimise the application.
+
+## Grunt tasks
+
+Main tasks:
+
+* `grunt clean`: clean build directory
+* `grunt watch`: watcher to compile css, js, images, views on change
+* `grunt css`: concatenate CSS files
+* `grunt css-prod`: concatenate and minify CSS files
+* `grunt img`: copy images
+* `grunt img-prod`: copy and compress images
+* `grunt js`: concatenate JS files
+* `grunt js-prod`: concatenate and minify JS files
+* `grunt`: compile everything in dev mode
+* `grunt build`: compile everything in production mode
+* `grunt start`: convenience for `build` + `watch`
+
 # Contributors
 
 * [Théo FIDRY](https://github.com/theofidry)

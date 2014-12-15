@@ -48,11 +48,39 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            main: {
+            html:   {
+                expand: true,
+                cwd:    'app/public/',
+                src:    '**/*.html',
+                dest:   'public/'
+            },
+            img:    {
                 expand: true,
                 cwd:    'app/assets/img/',
                 src:    '**/*',
                 dest:   'public/img/'
+            },
+            public: {
+                expand: true,
+                cwd:    'app/public/',
+                src:    ['**/*', '!**/*.html'],
+                dest:   'public/'
+            }
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments:     true,
+                    collapseWhitespace: true
+                },
+                files:   [
+                    {
+                        expand: true,
+                        cwd:    'app/public',
+                        src:    '**/*.html',
+                        dest:   'public/'
+                    }]
             }
         },
 
@@ -94,7 +122,7 @@ module.exports = function (grunt) {
                 files: 'app/assets/css/**/*.css',
                 tasks: ['css']
             },
-            img:  {
+            img: {
                 files: 'app/assets/img/**/*',
                 tasks: ['img']
             },
@@ -113,6 +141,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -124,12 +153,15 @@ module.exports = function (grunt) {
     grunt.registerTask('css', ['concat:css']);
     grunt.registerTask('css-prod', ['cssmin']);
 
-    grunt.registerTask('js', ['uglify:dev']);
-    grunt.registerTask('js-prod', ['uglify:prod']);
+    grunt.registerTask('html', ['copy:html, copy:public']);
+    grunt.registerTask('html-prod', ['htmlmin', 'copy:public']);
 
     grunt.registerTask('img', ['copy']);
     grunt.registerTask('img-prod', ['imagemin']);
 
-    grunt.registerTask('default', ['css', 'js', 'img']);
-    grunt.registerTask('build', ['css-prod', 'js-prod', 'img-prod']);
+    grunt.registerTask('js', ['uglify:dev']);
+    grunt.registerTask('js-prod', ['uglify:prod']);
+
+    grunt.registerTask('default', ['css', 'html', 'img', 'js']);
+    grunt.registerTask('build', ['css-prod', 'html-prod', 'img-prod', 'js-prod']);
 };
