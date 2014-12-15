@@ -47,6 +47,17 @@ module.exports = function (grunt) {
             }
         },
 
+        connect: {
+            server: {
+                options: {
+                    hostname:  'localhost',
+                    keepalive: true,
+                    port:      8000,
+                    base:      'public'
+                }
+            }
+        },
+
         copy: {
             html:   {
                 expand: true,
@@ -138,6 +149,7 @@ module.exports = function (grunt) {
      * Load Grunt plugins
      */
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -164,4 +176,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['css', 'html', 'img', 'js']);
     grunt.registerTask('build', ['css-prod', 'html-prod', 'img-prod', 'js-prod']);
+
+    grunt.registerTask('start', ['css-prod', 'html-prod', 'img-prod', 'js-prod']);
+    grunt.registerTask('server', ['connect']);
 };
