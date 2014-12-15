@@ -1,5 +1,25 @@
 language: node_js
 node_js:
-  - 0.6
-  - 0.8
   - 0.9
+branches:
+  only: master
+before_install: npm install -g grunt-cli
+script: grunt build
+after_success: ./deploy.sh
+deploy:
+  provider: releases
+  api-key:
+    secure: G/qo4PwRLM4RyHuwzFAbcvhQaFW+QVqlONrW1DbAW4QcUSzFq03Se0U8mJM/FjFFd0Fobt6zTdJslcyKP6cZJe4u8yWVpUdhem9+ueKWgEMbSMuwzjrD0zj4SV4B0QVT0A93Db3dDo+tqKILJRmd2KBNr8ABZ+MZ59incL2SRhE=
+  file: public
+  skip_cleanup: true
+  on:
+    repo: theofidry/responsive-ECEProject
+    branch: master
+    node_js: 0.9
+notifications:
+  email:
+    recipients:
+    - theo.fidry@gmail.com
+env:
+  global:
+    secure: Nf2qVPIOjpw7zsBDZtRNuR2NhHNDmwu9LyM1S7F6UKekI0rWNDERYRqMDYRuUcpVmHYbtrPkIpS/iN92a9nPPexj1tUtGIeOtb3nKp2m/4VVDD7r2FvA0IRSVEY3OQS7NjxEiMSF+CV72LZxljZ3YIaYTwKW6WT3qcK/7Z8rXYc=
