@@ -140,6 +140,10 @@ module.exports = function (grunt) {
             js:  {
                 files: 'app/assets/js/**/*.js',
                 tasks: ['js']
+            },
+            public:  {
+                files: 'app/public/**/*',
+                tasks: ['html']
             }
         }
     });
