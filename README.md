@@ -6,6 +6,8 @@ Project for the Responsive Design class at ECE Paris.
 Travis CI build:
 [![Build Status](https://travis-ci.org/theofidry/responsive-ECEProject.svg)](https://travis-ci.org/theofidry/responsive-ECEProject)
 
+Project published [here](http://theofidry.github.io/responsive-ECEProject/).
+
 # Quickstart
 
 Clone this project and then move into it:
@@ -19,7 +21,7 @@ Install Node.js: [link](http://nodejs.org/).
 Install dependencies:
 ```bash
 npm install
-``
+```
 
 Install [Grunt](http://gruntjs.com/):
 ```bash

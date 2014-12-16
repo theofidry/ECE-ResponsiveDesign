@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                 options: {
                     hostname:  'localhost',
                     keepalive: true,
-                    port:      8000,
+                    port:      1337,
                     base:      'public'
                 }
             }
@@ -165,10 +165,10 @@ module.exports = function (grunt) {
     grunt.registerTask('css', ['concat:css']);
     grunt.registerTask('css-prod', ['cssmin']);
 
-    grunt.registerTask('html', ['copy:html, copy:public']);
+    grunt.registerTask('html', ['copy:html', 'copy:public']);
     grunt.registerTask('html-prod', ['htmlmin', 'copy:public']);
 
-    grunt.registerTask('img', ['copy']);
+    grunt.registerTask('img', ['copy:img']);
     grunt.registerTask('img-prod', ['imagemin']);
 
     grunt.registerTask('js', ['uglify:dev']);
@@ -177,6 +177,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['css', 'html', 'img', 'js']);
     grunt.registerTask('build', ['css-prod', 'html-prod', 'img-prod', 'js-prod']);
 
-    grunt.registerTask('start', ['css-prod', 'html-prod', 'img-prod', 'js-prod']);
+    grunt.registerTask('start', ['default', 'watch']);
     grunt.registerTask('server', ['connect']);
 };

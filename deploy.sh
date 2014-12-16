@@ -14,8 +14,8 @@ if [ "$TRAVIS_REPO_SLUG" == ${REPO} ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] &
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${REPO} gh-pages > /dev/null
 
   cd gh-pages
-  git rm -rf ./public
-  cp -Rf $HOME/public ./public
+  git rm -rf *
+  cp -Rf $HOME/public .
   git add -f .
   git commit -m "Lastest version on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages branch."
   git push -fq origin gh-pages > /dev/null
